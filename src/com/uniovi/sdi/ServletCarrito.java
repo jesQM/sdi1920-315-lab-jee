@@ -52,15 +52,19 @@ public class ServletCarrito extends HttpServlet {
 			out.println("<HEAD><TITLE>Tienda SDI: carrito</TITLE></HEAD>");
 			out.println("<BODY>");
 			out.println(carritoEnHTML(carrito)+"<br>");
-			out.println("<a href=\"tienda.html\">Volver</a></BODY></HTML>");
+			out.println("<a href=\"index.jsp\">Volver</a></BODY></HTML>");
 	}
 
 	private void insertarEnCarrito(HashMap<String, Integer> carrito, String producto) {
-		Integer units = carrito.get(producto);
-		if ( units == null ) // No units
-			carrito.put(producto, 1);
-		else // Has units
-			carrito.put(producto, units+1);
+		synchronized (carrito) {
+			
+			Integer units = carrito.get(producto);
+			if ( units == null ) // No units
+				carrito.put(producto, 1);
+			else // Has units
+				carrito.put(producto, units+1);
+			
+		}
 	}
 
 	private String carritoEnHTML(HashMap<String, Integer> carrito) {
