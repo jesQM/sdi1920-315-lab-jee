@@ -27,7 +27,7 @@ public class Logout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().setAttribute("username", null);
-		response.sendRedirect("/complementario3/blogView.jsp");
+		response.sendRedirect(request.getContextPath() + "/complementario3/blogView.jsp");
 	}
 
 	/**

@@ -32,7 +32,7 @@ public class CreateNewComment extends HttpServlet {
 		
 		CommentsDatabase db = new CommentsDatabase();
 		db.setNewComment(new Comment( (String) request.getSession().getAttribute("username"), request.getParameter("content")));
-		response.sendRedirect("/complementario3/blogView.jsp");
+		response.sendRedirect(request.getContextPath() + "/complementario3/blogView.jsp");
 	}
 
 	/**
