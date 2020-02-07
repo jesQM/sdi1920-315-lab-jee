@@ -50,6 +50,12 @@
 			    </div>
 			</c:forEach>
 	    </div>
+	    
+	    <div class="row ">
+            <a href="productos" class="btn btn-default">
+            	VerTodosLosProductos (Complementario_1)
+            </a>
+	    </div>
 	
 	</div>
     
